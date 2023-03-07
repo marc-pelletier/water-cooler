@@ -29,8 +29,7 @@ router.get('/:tapid', function(req, res, next) {
             let userlist = selectedTap.users.join(" - ")
             User.find({}, (err, users) => {
                 users = users.map(user => {
-                    console.log(user._id)
-                    if (userlist.includes(user._id)) return user;
+                    if (userlist.includes(user._id.toString())) return user;
                     else return;
                 })
                 res.render('taps/index', { user: req.user, taps, selectedTap, channelId: null, users});
@@ -44,7 +43,14 @@ router.get('/:tapid/channels/:chanid', function(req, res, next) {
     if (!req.user) res.redirect('/')
     Tap.find({}, (err, taps) => {
         Tap.findById(req.params.tapid, (err, selectedTap) => {
-            res.render('taps/index', { user: req.user, taps, selectedTap, channelId: req.params.chanid});
+            let userlist = selectedTap.users.join(" - ")
+            User.find({}, (err, users) => {
+                users = users.map(user => {
+                    if (userlist.includes(user._id.toString())) return user;
+                    else return;
+                })
+                res.render('taps/index', { user: req.user, taps, selectedTap, channelId: req.params.chanid, users});
+            })
         })
     })
 });

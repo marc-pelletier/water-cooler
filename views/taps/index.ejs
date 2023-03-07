@@ -14,6 +14,7 @@
   <body>
     <% let selectedChannel %>
     <% channelId ? selectedChannel = selectedTap.channels.find(({ _id }) => _id == channelId) : selectedChannel = null %>
+    <% console.log(selectedChannel) %>
     <main>
         <div id="taps">
             <% taps.forEach((tap) => { %>
@@ -28,7 +29,7 @@
                     <a href="/taps/<%= selectedTap.id %>/channels/<%= channel.id %>" class="channel"><li>#<%= channel.name %></li></a>
                 <% }) : '' %>
                 <%- selectedTap ? '<a href="/taps/' + selectedTap.id + '/channels/new" id="newchannel"><li> New Channel </li></a>' : '' %>
-                </ul>
+            </ul>
             <div id="myaccount">
                 <%= user.nname %>
             </div>
@@ -38,11 +39,24 @@
                 <h5><%= selectedChannel ? '#'+selectedChannel.name : '' %></h5>
             </nav>
             <div id="content">
-                <form action="/taps" method="post" id="msgform">
-                    <input type="textarea" name="body">
-                </form>
+                <% if (selectedChannel) {%>
+                    <% selectedChannel.msgs.forEach((msg) => { %>
+                        <div id="msg">
+                            <h6>msg.author</h6>
+                            <p>msg.body</p>
+                        </div>
+                    <% }) %>
+                    <form action="/taps" method="post" id="msgform">
+                        <input type="textarea" name="body">
+                    </form>
+                <% } %>
             </div>
             <div id="users" class="">
+                <ul id="userlist">
+                    <% users ? users.forEach((user) => { %>
+                        <a href="/users/<%= user._id %>" class="user"><li><%= user.nname %></li></a>
+                    <% }) : '' %>
+                </ul>
             </div>
         </div>
     </main>
