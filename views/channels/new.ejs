@@ -13,16 +13,9 @@
   </head>
   <body>
     <main>
-      <ul class="login">
-      Please Log in!
-        <li>
-        <% if (user) { %>
-          <a href="/logout"><i class="material-icons">trending_flat</i>Log Out</a>
-        <% } else { %>
-          <a href="/auth/google"><i class="material-icons">vpn_key</i>Login with Google</a>
-        <% } %>
-        </li>
-      </ul>
+      <form action="/taps/<%= tapId %>" method="post" id="serverform">
+        <input type="text" name="name" id="" placeholder="Channel Name">
+      </form>
     </main>
   </body>
 </html>

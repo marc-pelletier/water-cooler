@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Google Icon Fonts used by Materialize -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS Framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <!-- JavaScript for Materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <% let selectedChannel %>
+    <% channelId ? selectedChannel = selectedTap.channels.find(({ _id }) => _id == channelId) : selectedChannel = null %>
+    <main>
+        <div id="taps">
+            <% taps.forEach((tap) => { %>
+                <a href="/taps/<%= tap.id %>"><div class="tapicon"><%= tap.name.charAt(0) %></div></a>
+            <% }) %>
+            <a href="/taps/new"><div class="tapicon">+</div></a>
+        </div>
+        <div id="channels">
+            <h5><%= selectedTap ? selectedTap.name : '' %></h5>
+            <ul id="channellist">
+                <% selectedTap ? selectedTap.channels.forEach((channel) => { %>
+                    <a href="/taps/<%= selectedTap.id %>/channels/<%= channel.id %>" class="channel"><li>#<%= channel.name %></li></a>
+                <% }) : '' %>
+                <%- selectedTap ? '<a href="/taps/' + selectedTap.id + '/channels/new" id="newchannel"><li> New Channel </li></a>' : '' %>
+                </ul>
+            <div id="myaccount">
+                <%= user.nname %>
+            </div>
+        </div>
+        <div id="view">
+            <nav>
+                <h5><%= selectedChannel ? '#'+selectedChannel.name : '' %></h5>
+            </nav>
+            <div id="content">
+                <form action="/taps" method="post" id="msgform">
+                    <input type="textarea" name="body">
+                </form>
+            </div>
+            <div id="users" class="">
+            </div>
+        </div>
+    </main>
+  </body>
+</html>
