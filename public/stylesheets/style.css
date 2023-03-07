@@ -1,8 +1,168 @@
 body {
-  padding: 50px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(10, 20, 20);
+  height: 100vh;
 }
 
 a {
   color: #00B7FF;
+}
+
+main {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 100%;
+}
+
+main > div {
+  background-color: rgb(20, 30, 30);
+  color: white;
+  height: 100%;
+}
+
+#taps {
+  width: 80px;
+}
+
+#channels {
+  border-left: 1px solid lightslategray;
+  background-color: rgb(10, 15, 15);
+  width: 250px;
+  position: relative;
+  border-radius: 10px 0 0 0;
+}
+
+#channels h5{
+  font-size: medium;
+  background-color: rgb(5, 10, 10);
+  margin: 0;
+  padding: 15px 8px;
+  border-radius: 10px 0 0 0;
+  height: 48px;
+  border-bottom: 1px solid rgb(25, 35, 35);
+}
+
+#channellist {
+  padding: 10px 0;
+  margin: 0;
+}
+
+.channel li {
+  padding: 2px 6px;
+  color: white;
+}
+
+#newchannel li {
+  margin: 2px 6px;
+  color: #00B7FF;
+}
+
+.selected {
+  background-color: grey;
+}
+
+#myaccount {
+  position: absolute;
+  height: 25px;
+  width: 100%;
+  padding: 25px 10px;
+  bottom: 0;
+  left: 0;
+}
+
+#view {
+  flex-grow: 1;
+  border-left: 1px solid lightslategray;
+  position: relative;
+  display: flex;
+}
+
+#view nav {
+  font-size: medium;
+  background-color: rgb(15, 20, 20);
+  margin: 0;
+  height: 48px;
+  z-index: 1;
+  position: absolute;
+  border-bottom: 1px solid rgb(25, 35, 35);
+}
+
+#view nav h5{
+  margin: 0;
+  font-size: medium;
+  padding: 15px 8px;
+}
+
+#content {
+  flex-grow: 1;
+  position: relative;
+} 
+
+#msgform {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+}
+
+#msgform input {
+  color: white;
+  border: 1px solid grey;
+  padding: 5px;
+  background-color: rgba(128, 128, 128, 0) !important;
+  width: 100%;
+}
+
+#users {
+  background-color: rgb(20, 30, 30);
+  color: white;
+  height: 100%;
+  width: 250px;
+  background-color: rgb(10, 15, 15);
+  border-left: 1px solid lightslategray;
+}
+
+.login {
+  text-align: center;
+  border: 3px solid lightslategray;
+  padding: 20px !important;
+  background-color: rgb(19, 32, 32);
+  color: white;
+  font-size: larger;
+}
+
+.hide {
+  display: none;
+}
+
+.tapicon {
+  margin: 5px auto;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: green;
+  text-align: center;
+  font-size: 51px;
+  color: white;
+}
+
+#serverform {
+  text-align: center;
+  border: 3px solid lightslategray;
+  padding: 20px !important;
+  background-color: rgb(19, 32, 32);
+  color: white;
+  font-size: larger;
+  max-width: 250px;
+  max-height: 100px;
+  margin: 0 auto;
+}
+
+#serverform input{
+  color: white;
 }
