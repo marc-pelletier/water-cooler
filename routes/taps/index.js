@@ -8,7 +8,7 @@ const User = require('../../models/user');
 router.get('/', function(req, res, next) {
     if (!req.user) res.redirect('/')
     Tap.find({}, (err, taps) => {
-        res.render('taps/index', { user: req.user, taps, selectedTap: null, selectedChannel: null, channelId: null, users: null });
+        res.render('taps/index', { user: req.user, taps, selectedTap: null, selectedChannel: null, users: null });
     })
 });
 
@@ -19,7 +19,7 @@ router.get('/new', function(req, res, next) {
 
 router.get('/:tapid/channels/new', function(req, res, next) {
     if (!req.user) res.redirect('/')
-    res.render('channels/new', { user: req.user, tapId: req.params.tapid, channelId: null });
+    res.render('channels/new', { user: req.user, tapId: req.params.tapid });
 });
 
 router.get('/:tapid', function(req, res, next) {
@@ -32,7 +32,7 @@ router.get('/:tapid', function(req, res, next) {
                     if (userlist.includes(user._id.toString())) return user;
                     else return;
                 })
-                res.render('taps/index', { user: req.user, taps, selectedTap, channelId: null, users});
+                res.render('taps/index', { user: req.user, taps, selectedTap, selectedChannel: null, users});
             })
         })
     })
@@ -49,10 +49,23 @@ router.get('/:tapid/channels/:chanid', function(req, res, next) {
                     if (userlist.includes(user._id.toString())) return user;
                     else return;
                 })
-                res.render('taps/index', { user: req.user, taps, selectedTap, channelId: req.params.chanid, users});
+                console.log(selectedTap.channels.find(channel => channel._id == req.params.chanid));
+                let selectedChannel = selectedTap.channels.find(channel => channel._id == req.params.chanid);
+                res.render('taps/index', { user: req.user, taps, selectedTap, selectedChannel, users});
             })
         })
     })
+});
+
+router.post('/:tapid/channels/:chanid', function(req, res, next) {
+    if (!req.user) res.redirect('/')
+    Tap.findById(req.params.tapid, (err, tap) => {
+        let channel = tap.channels.find(channel => channel._id == req.params.chanid)
+        req.body.author = req.user._id;
+        channel.msgs.push(req.body);
+        tap.save();
+    })
+    res.redirect('/taps/'+req.params.tapid+'/channels/'+req.params.chanid);
 });
 
 router.post('/:tapid', function(req, res, next) {
