@@ -112,6 +112,8 @@ main > div {
 #content {
   flex-grow: 1;
   position: relative;
+  display: flex;
+  flex-direction: column-reverse;
 } 
 
 #msgform {
@@ -127,6 +129,17 @@ main > div {
   padding: 5px;
   background-color: rgba(128, 128, 128, 0) !important;
   width: 100%;
+}
+
+#messages {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 80px;
+  overflow-y: scroll;
+}
+
+.msg {
+  padding: 0 20px;
 }
 
 #users {
