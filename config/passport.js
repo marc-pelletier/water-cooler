@@ -14,10 +14,10 @@ passport.use(new GoogleStrategy({
         return cb(null, user);
       } else {
         var newUser = new User({
-          name: profile.displayName,
+          gname: profile.displayName,
+          nname: profile.displayName,
           email: profile.emails[0].value,
-          googleId: profile.id,
-          cohort: 'SEI-59'
+          googleId: profile.id
         });
         newUser.save(function(err) {
           if (err) return cb(err);

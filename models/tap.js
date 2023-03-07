@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const ObjectId = Schema.Types.ObjectId
-const User = require('../models/user');
-const Message = require('../models/message');
+const User = require('./user');
+const Message = require('./message');
 
 const channelSchema = new Schema({
     name: String,
@@ -12,7 +12,8 @@ const channelSchema = new Schema({
 const tapSchema = new Schema({
     name: String,
     users: {type: [ObjectId], ref: User},
-    channels: {type: [channelSchema]}
+    channels: {type: [channelSchema]},
+    inviteOnly: {type: Boolean, default: false}
 }, {timestamps: true})
 
 module.exports = mongoose.model("Tap", tapSchema)
