@@ -113,7 +113,6 @@ main > div {
   flex-grow: 1;
   position: relative;
   display: flex;
-  flex-direction: column-reverse;
 } 
 
 #msgform {
@@ -133,7 +132,7 @@ main > div {
 
 #messages {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   margin-bottom: 80px;
   overflow-y: scroll;
 }
@@ -189,4 +188,22 @@ main > div {
 
 #serverform input{
   color: white;
+}
+
+#tapindex {
+  margin: 80px 10px 0 10px;
+  display: flex;
+  overflow-y: scroll;
+}
+
+.tapcard {
+  border: 2px solid rgb(25, 35, 35);
+  height: 75px;
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: rgb(30, 40, 40);
 }

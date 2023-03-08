@@ -13,7 +13,9 @@ var app = express();
 require('./config/database');
 require('./config/passport');
 
-var indexRouter = require('./routes/index');
+var loginRouter = require('./routes/login');
+var homeRouter = require('./routes/home/index');
+var usersRouter = require('./routes/users/index');
 var tapsRouter = require('./routes/taps/index');
 
 // view engine setup
@@ -33,7 +35,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', indexRouter);
+app.use('/', loginRouter);
+app.use('/home', homeRouter);
+app.use('/users', usersRouter);
 app.use('/taps', tapsRouter);
 
 // catch 404 and forward to error handler

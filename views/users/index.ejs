@@ -21,17 +21,12 @@
         </div>
         <div id="view">
             <nav>
-                <h5>Taps Listing</h5>
+                <h5><%= selectedChannel ? '#'+selectedChannel.name : '' %></h5>
             </nav>
             <div id="content">
-                <div id="tapindex">
-                    <% indexTaps.forEach((tap) => { %>
-                        <form action="/taps/<%= tap.id %>" method="POST" class="tapcard">
-                            <%= tap.name %>
-                            <button>Join</button>
-                        </form>
-                    <% }) %>
-                </div>
+                <% users.forEach((user) => { %>
+                    <a href="/users/<%= user.id %>"><div class="user"><%= user.nname %></div></a>
+                <% }) %>
             </div>
         </div>
     </main>
