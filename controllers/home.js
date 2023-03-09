@@ -66,7 +66,7 @@ function deleteMessage(req, res, next) {
     if (!req.user) return res.redirect('/')
     Tap.findById(req.params.tapid, (err, tap) => {
         let channel = tap.channels.find(channel => channel._id == req.params.chanid)
-        let msgIdx = channel.msgs.findIndex(msg => msg._id == req.params.chanid)
+        let msgIdx = channel.msgs.findIndex(msg => msg._id == req.params.msgid)
         channel.msgs.splice(msgIdx, 1);
         tap.save();
     })
