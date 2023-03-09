@@ -19,7 +19,7 @@
             <div id="content">
                 <div id="tapindex">
                     <% inviteTaps.forEach((tap) => { %>
-                        <form action="/users/<%= user.id %>/invite/<%= tap.id %>" method="POST" class="tapcard">
+                        <form action="/users/<%= selectedUser %>/invite/<%= tap.id %>" method="POST" class="tapcard">
                             <%= tap.name %>
                             <button>Invite</button>
                         </form>

@@ -9,10 +9,11 @@ module.exports = {
 
 function index(req, res, next) {
     if (!req.user) return res.redirect('/')
+    let selectedUser = req.params.userid
     Tap.find({}, (err, taps) => {
         User.find({}, (err, users) => {
             taps = taps.filter(tap => tap.users.join(' - ').includes(req.user._id.toString()))
-            res.render('users/index', { user: req.user, taps, selectedTap: null, selectedChannel: null, users });
+            res.render('users/index', { user: req.user, taps, selectedTap: null, selectedChannel: null, users, selectedUser });
         })
     })
 }
