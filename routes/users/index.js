@@ -14,4 +14,7 @@ router.get('/', function(req, res, next) {
     })
 });
 
+router.get('/:userid', function(req, res, next) {
+});
+
 module.exports = router;

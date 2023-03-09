@@ -13,20 +13,15 @@
   </head>
   <body>
     <main>
-        <div id="taps">
-            <% taps.forEach((tap) => { %>
-                <a href="/taps/<%= tap.id %>"><div class="tapicon"><%= tap.name.charAt(0) %></div></a>
-            <% }) %>
-            <a href="/taps/new"><div class="tapicon">+</div></a>
-        </div>
+        <%- include('../partials/taps-sidebar.ejs') %>
         <div id="view">
-            <nav>
-                <h5><%= selectedChannel ? '#'+selectedChannel.name : '' %></h5>
-            </nav>
+            <%- include('../partials/nav.ejs') %>
             <div id="content">
-                <% users.forEach((user) => { %>
-                    <a href="/users/<%= user.id %>"><div class="user"><%= user.nname %></div></a>
-                <% }) %>
+                <div id="userindex">
+                    <% users.forEach((user) => { %>
+                        <form class="usercard"><%= user.nname %><button>Invite</button></form>
+                    <% }) %>
+                </div>
             </div>
         </div>
     </main>

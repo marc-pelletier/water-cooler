@@ -101,6 +101,12 @@ main > div {
   z-index: 1;
   position: absolute;
   border-bottom: 1px solid rgb(25, 35, 35);
+  display: flex;
+  justify-content: space-between;
+}
+
+#view nav li {
+  line-height: 48px;
 }
 
 #view nav h5{
@@ -135,10 +141,15 @@ main > div {
   flex-direction: column-reverse;
   margin-bottom: 80px;
   overflow-y: scroll;
+  width: 100%;
 }
 
 .msg {
   padding: 0 20px;
+  border: 2px solid rgb(25, 35, 35);
+  margin: 5px;
+  border-radius: 5px;
+  background-color: rgb(30, 40, 40);
 }
 
 #users {
@@ -198,8 +209,26 @@ main > div {
 
 .tapcard {
   border: 2px solid rgb(25, 35, 35);
-  height: 75px;
-  width: 200px;
+  height: 100px;
+  width: 250px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: rgb(30, 40, 40);
+}
+
+#userindex {
+  margin: 80px 10px 0 10px;
+  display: flex;
+  overflow-y: scroll;
+}
+
+.usercard {
+  border: 2px solid rgb(25, 35, 35);
+  height: 100px;
+  width: 250px;
   display: flex;
   justify-content: space-around;
   align-items: center;

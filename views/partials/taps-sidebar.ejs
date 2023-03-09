@@ -1,0 +1,6 @@
+<div id="taps">
+    <% taps.forEach((tap) => { %>
+        <a href="/home/<%= tap.id %>"><div class="tapicon"><%= tap.name.charAt(0) %></div></a>
+    <% }) %>
+    <a href="/home/new"><div class="tapicon">+</div></a>
+</div>

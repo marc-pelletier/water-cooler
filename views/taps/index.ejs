@@ -13,16 +13,9 @@
   </head>
   <body>
     <main>
-        <div id="taps">
-            <% taps.forEach((tap) => { %>
-                <a href="/taps/<%= tap.id %>"><div class="tapicon"><%= tap.name.charAt(0) %></div></a>
-            <% }) %>
-            <a href="/taps/new"><div class="tapicon">+</div></a>
-        </div>
+        <%- include('../partials/taps-sidebar.ejs') %>
         <div id="view">
-            <nav>
-                <h5>Taps Listing</h5>
-            </nav>
+            <%- include('../partials/nav.ejs') %>
             <div id="content">
                 <div id="tapindex">
                     <% indexTaps.forEach((tap) => { %>
