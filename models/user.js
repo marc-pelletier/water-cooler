@@ -12,8 +12,9 @@ var userSchema = new Schema({
     nname: String,
     email: String,
     googleId: String,
+    tInvitesIn: {type: [ObjectId]},
     friends: {type: [ObjectId]},
-    fInvitesInc: {type: [ObjectId]},
+    fInvitesIn: {type: [ObjectId]},
     fInvitesOut: {type: [ObjectId]},
     dms: {type: [messageSchema]}
 }, {

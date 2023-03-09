@@ -17,10 +17,16 @@
         <div id="view">
             <%- include('../partials/nav.ejs') %>
             <div id="content">
-                <div id="userindex">
-                    <% users.forEach((user) => { %>
-                        <form class="usercard" method="GET" action="/users/<%= user.id %>/invite"><%= user.nname %><button>Invite</button></form>
-                    <% }) %>
+                <div id="invites">
+                    <h5>Tap Invites</h5>
+                    <div id="tapindex">
+                        <% tapInvites.forEach((tap) => { %>
+                            <form action="/invites/<%= tap.id %>" method="POST" class="tapcard">
+                                <%= tap.name %>
+                                <button>Join</button>
+                            </form>
+                        <% }) %>
+                    </div>
                 </div>
             </div>
         </div>

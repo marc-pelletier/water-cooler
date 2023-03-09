@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Google Icon Fonts used by Materialize -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS Framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <!-- JavaScript for Materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <main>
+        <%- include('../partials/taps-sidebar.ejs') %>
+        <div id="channels">
+            <h5><%= selectedTap ? selectedTap.name : '' %></h5>
+            <ul id="channellist">
+                <% selectedTap ? selectedTap.channels.forEach((channel) => { %>
+                    <a href="/home/<%= selectedTap.id %>/channels/<%= channel.id %>" class="channel"><li>#<%= channel.name %></li></a>
+                <% }) : '' %>
+                <%- selectedTap ? '<a href="/home/' + selectedTap.id + '/channels/new" id="newchannel"><li> New Channel </li></a>' : '' %>
+            </ul>
+            <div id="myaccount">
+                <%= user.nname %>
+            </div>
+        </div>
+        <div id="view">
+            <%- include('../partials/nav.ejs') %>
+            <div id="content">
+                <div id="tapindex">
+                    <% taps.forEach((tap) => { %>
+                        <form action="/users/<%= user.id %>/invite/<%= tap.id %>" method="POST" class="tapcard">
+                            <%= tap.name %>
+                            <button>Invite</button>
+                        </form>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

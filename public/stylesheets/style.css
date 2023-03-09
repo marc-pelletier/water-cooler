@@ -236,3 +236,16 @@ main > div {
   border-radius: 5px;
   background-color: rgb(30, 40, 40);
 }
+
+#invites {
+  margin-top: 80px;
+  width: 100%;
+}
+
+#invites h5{
+  margin-left: 18px;
+}
+
+#invites #tapindex {
+  margin-top: 10px;
+}

@@ -17,6 +17,7 @@ var loginRouter = require('./routes/login');
 var homeRouter = require('./routes/home/index');
 var usersRouter = require('./routes/users/index');
 var tapsRouter = require('./routes/taps/index');
+var invitesRouter = require('./routes/invites/index');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -39,6 +40,7 @@ app.use('/', loginRouter);
 app.use('/home', homeRouter);
 app.use('/users', usersRouter);
 app.use('/taps', tapsRouter);
+app.use('/invites', invitesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

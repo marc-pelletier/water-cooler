@@ -9,12 +9,29 @@ router.get('/', function(req, res, next) {
     if (!req.user) return res.redirect('/')
     Tap.find({}, (err, taps) => {
         User.find({}, (err, users) => {
+            taps = taps.filter(tap => tap.users.join(' - ').includes(req.user._id.toString()))
             res.render('users/index', { user: req.user, taps, selectedTap: null, selectedChannel: null, users });
         })
     })
 });
 
-router.get('/:userid', function(req, res, next) {
+router.get('/:userid/invite', function(req, res, next) {
+    if (!req.user) return res.redirect('/')
+    Tap.find({}, (err, taps) => {
+        User.findById(req.params.userid, (err, selectedUser) => {
+            taps = taps.filter(tap => tap.users.join(' - ').includes(req.user._id.toString()))
+            res.render('users/invite', { user: req.user, taps, selectedTap: null, selectedChannel: null, selectedUser });
+        })
+    })
+});
+
+router.post('/:userid/invite/:tapid', function(req, res, next) {
+    if (!req.user) return res.redirect('/')
+    User.findById(req.params.userid, (err, user) => {
+        user.tInvitesIn.push(req.params.tapid)
+        user.save()
+    })
+    res.redirect('/users/'+req.params.userid+'/invite')
 });
 
 module.exports = router;
