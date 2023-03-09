@@ -37,7 +37,8 @@ Taps - Display all taps and join them.
 Invites - Display taps you've been invited to.  
 
 ## Next steps:
-- Add in points system
-- Add in other tools such as radar or mine
-- Find better sound effects 
-- Make better assets
+- Add friend support
+- Add direct messaging functionality
+- Add image support
+- Add Tap administration/settings
+- Add live updates
