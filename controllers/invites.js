@@ -26,6 +26,9 @@ function joinTap(req, res, next) {
         if (!tap.users.join(' - ').includes(req.user._id.toString())) {
             tap.users.push(req.user._id)
             tap.save()
+            let inviteIdx = req.user.tInvitesIn.findIndex(invite => invite == tap.id)
+            req.user.tInvitesIn.splice(inviteIdx, 1)
+            req.user.save()
         }
         res.redirect('/invites');
     })
