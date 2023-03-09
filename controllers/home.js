@@ -47,7 +47,6 @@ function show(req, res, next) {
 }
 
 function showChannel(req, res, next) {
-    console.log(req.params)
     if (!req.user) return res.redirect('/')
     Tap.find({}, (err, taps) => {
         Tap.findById(req.params.tapid, (err, selectedTap) => {
