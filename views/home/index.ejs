@@ -41,7 +41,7 @@
                             </div>
                         <% }) %>
                         <form action="/home/<%= selectedTap.id %>/channels/<%= selectedChannel.id %>" method="post" id="msgform">
-                            <input type="textarea" name="body">
+                            <input type="textarea" name="body" autofocus onfocus="this.select()">
                         </form>
                     <% } %>
                     </div>
