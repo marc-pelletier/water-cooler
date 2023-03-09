@@ -21,7 +21,7 @@
                     <% indexTaps.forEach((tap) => { %>
                         <form action="/taps/<%= tap.id %>" method="POST" class="tapcard">
                             <%= tap.name %>
-                            <button>Join</button>
+                            <%- tap.users.join(' - ').includes(user.id) ? "<button disabled>Joined</button>" : "<button>Join</button>" %>
                         </form>
                     <% }) %>
                 </div>

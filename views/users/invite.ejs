@@ -14,23 +14,11 @@
   <body>
     <main>
         <%- include('../partials/taps-sidebar.ejs') %>
-        <div id="channels">
-            <h5><%= selectedTap ? selectedTap.name : '' %></h5>
-            <ul id="channellist">
-                <% selectedTap ? selectedTap.channels.forEach((channel) => { %>
-                    <a href="/home/<%= selectedTap.id %>/channels/<%= channel.id %>" class="channel"><li>#<%= channel.name %></li></a>
-                <% }) : '' %>
-                <%- selectedTap ? '<a href="/home/' + selectedTap.id + '/channels/new" id="newchannel"><li> New Channel </li></a>' : '' %>
-            </ul>
-            <div id="myaccount">
-                <%= user.nname %>
-            </div>
-        </div>
         <div id="view">
             <%- include('../partials/nav.ejs') %>
             <div id="content">
                 <div id="tapindex">
-                    <% taps.forEach((tap) => { %>
+                    <% inviteTaps.forEach((tap) => { %>
                         <form action="/users/<%= user.id %>/invite/<%= tap.id %>" method="POST" class="tapcard">
                             <%= tap.name %>
                             <button>Invite</button>

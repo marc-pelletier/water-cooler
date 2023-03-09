@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://127.0.0.1/water-cooler') 
+mongoose.connect(process.env.DATABASE_URL) 
 
 const db = mongoose.connection
 
