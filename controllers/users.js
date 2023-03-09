@@ -31,7 +31,7 @@ function newInvite(req, res, next) {
 function create(req, res, next) {
     if (!req.user) return res.redirect('/')
     User.findById(req.params.userid, (err, user) => {
-        Tap.findById(req.params.tapid, (err, user) => {
+        Tap.findById(req.params.tapid, (err, tap) => {
             if (!tap.users.join(' - ').includes(req.params.userid)) {
                 user.tInvitesIn.push(req.params.tapid)
                 user.save()
