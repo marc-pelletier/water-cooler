@@ -13,12 +13,15 @@
   </head>
   <body>
     <main>
-      <ul class="login">
-      Please Log in!
-        <li>
-          <a href="/auth/google"><i class="material-icons">vpn_key</i>Login with Google</a>
-        </li>
-      </ul>
+        <%- include('../partials/taps-sidebar.ejs') %>
+        <div id="view">
+            <%- include('../partials/nav.ejs') %>
+            <div id="content">
+                <div id="usersettings">
+                      <form method="POST" action="/usersettings/update">Nickname: <input type="text" name="nname" placeholder="<%= user.nname %>"></form>
+                </div>
+            </div>
+        </div>
     </main>
   </body>
 </html>

@@ -1,11 +1,12 @@
-var express = require('express');
-var router = express.Router();
-const passport = require('passport');
-const Tap = require('../../models/tap');
-const User = require('../../models/user');
+const Tap = require('../models/tap');
+const User = require('../models/user');
 
+module.exports = {
+  index,
+  joinTap
+};
 
-router.get('/', function(req, res, next) {
+function index(req, res, next) {
     if (!req.user) return res.redirect('/')
     Tap.find({}, (err, indexTaps) => {
         let taps = indexTaps.filter(tap => tap.users.join(' - ').includes(req.user._id.toString()))
@@ -17,9 +18,9 @@ router.get('/', function(req, res, next) {
         });
         res.render('invites/index', { user: req.user, taps, selectedTap: null, selectedChannel: null, tapInvites});
     })
-});
+}
 
-router.post('/:tapid', function(req, res, next) {
+function joinTap(req, res, next) {
     if (!req.user) return res.redirect('/')
     Tap.findById(req.params.tapid, (err, tap) => {
         if (!tap.users.join(' - ').includes(req.user._id.toString())) {
@@ -28,6 +29,4 @@ router.post('/:tapid', function(req, res, next) {
         }
         res.redirect('/invites');
     })
-});
-
-module.exports = router;
+}

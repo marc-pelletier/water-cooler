@@ -14,10 +14,11 @@ require('./config/database');
 require('./config/passport');
 
 var loginRouter = require('./routes/login');
-var homeRouter = require('./routes/home/index');
-var usersRouter = require('./routes/users/index');
-var tapsRouter = require('./routes/taps/index');
-var invitesRouter = require('./routes/invites/index');
+var homeRouter = require('./routes/home');
+var usersRouter = require('./routes/users');
+var tapsRouter = require('./routes/taps');
+var invitesRouter = require('./routes/invites');
+var userSettingsRouter = require('./routes/usersettings');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -41,6 +42,7 @@ app.use('/home', homeRouter);
 app.use('/users', usersRouter);
 app.use('/taps', tapsRouter);
 app.use('/invites', invitesRouter);
+app.use('/usersettings', userSettingsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

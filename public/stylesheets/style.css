@@ -249,3 +249,37 @@ main > div {
 #invites #tapindex {
   margin-top: 10px;
 }
+
+.deletemsg {
+  position: absolute;
+  right: 15px;
+  padding: 5px;
+  display: none;
+}
+
+.deletemsg button {
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.msg:hover .deletemsg {
+  display: block;
+}
+
+#usersettings {
+  margin-top: 80px;
+  width: 100%;
+}
+
+#usersettings form {
+  padding: 0 20px;
+  width: 400px;
+}
+
+#usersettings input {
+  display: inline-block;
+  width: 250px;
+  color: white;
+}

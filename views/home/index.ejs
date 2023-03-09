@@ -13,12 +13,7 @@
   </head>
   <body>
     <main>
-        <div id="taps">
-            <% taps.forEach((tap) => { %>
-                <a href="/home/<%= tap.id %>"><div class="tapicon"><%= tap.name.charAt(0) %></div></a>
-            <% }) %>
-            <a href="/home/new"><div class="tapicon">+</div></a>
-        </div>
+        <%- include('../partials/taps-sidebar.ejs') %>
         <div id="channels">
             <h5><%= selectedTap ? selectedTap.name : '' %></h5>
             <ul id="channellist">
@@ -28,7 +23,7 @@
                 <%- selectedTap ? '<a href="/home/' + selectedTap.id + '/channels/new" id="newchannel"><li> New Channel </li></a>' : '' %>
             </ul>
             <div id="myaccount">
-                <%= user.nname %>
+                <a href="/usersettings"><%= user.nname %></a>
             </div>
         </div>
         <div id="view">
@@ -39,7 +34,9 @@
                     <% if (selectedChannel) {%>
                         <% selectedChannel.msgs.forEach((msg) => { %>
                             <div class="msg">
-                                <h6><%= msg.author %></h6>
+                                <% let msgauthor = users.find(user => user._id.toString() == msg.author.toString()) %>
+                                <% if (msgauthor.id == user.id) { %> <form class="deletemsg" action="<%= selectedChannel.id %>/messages/<%= msg.id %>" method="POST"><button>X</button></form> <% } %>
+                                <h6><%= msgauthor.nname %></h6>
                                 <p><%= msg.body %></p>
                             </div>
                         <% }) %>
