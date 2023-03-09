@@ -19,11 +19,12 @@ function index(req, res, next) {
 
 function newInvite(req, res, next) {
     if (!req.user) return res.redirect('/')
+    let selectedUser = req.params.userid
     Tap.find({}, (err, taps) => {
         User.findById(req.params.userid, (err, selectedUser) => {
             taps = taps.filter(tap => tap.users.join(' - ').includes(req.user._id.toString()))
             inviteTaps = taps.filter(tap => !tap.users.join(' - ').includes(req.params.userid))
-            res.render('users/invite', { user: req.user, taps, selectedTap: null, selectedChannel: null, selectedUser, inviteTaps });
+            res.render('users/invite', { user: req.user, taps, selectedTap: null, selectedChannel: null, selectedUser, inviteTaps, selectedUser });
         })
     })
 }

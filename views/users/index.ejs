@@ -19,7 +19,7 @@
             <div id="content">
                 <div id="userindex">
                     <% users.forEach((user) => { %>
-                        <form class="usercard" method="GET" action="/users/<%= user.id %>/invite"><%= user.nname %><button>Invite</button></form>
+                        <form class="usercard" method="GET" action="/users/<%= selectedUser.id %>/invite"><%= user.nname %><button>Invite</button></form>
                     <% }) %>
                 </div>
             </div>
