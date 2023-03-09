@@ -50,7 +50,7 @@
             <div id="users" class="">
                 <ul id="userlist">
                     <% users ? users.forEach((user) => { %>
-                        <a href="/home/<%= user._id %>" class="user"><li><%= user.nname %></li></a>
+                        <li class="user"><%= user.nname %></li>
                     <% }) : '' %>
                 </ul>
             </div>
