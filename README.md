@@ -32,13 +32,9 @@ Delete a message by hovering over it and selecting the red 'X' button.
 Change your nickname by clicking your current name in the lower left.
 
 ### Navigation
-Users - Display all users and invite them to taps.
-Taps - Display all taps and join them.
-Invites - Display taps you've been invited to. 
-
-
-
-
+Users - Display all users and invite them to taps.  
+Taps - Display all taps and join them.  
+Invites - Display taps you've been invited to.  
 
 ## Next steps:
 - Add in points system
