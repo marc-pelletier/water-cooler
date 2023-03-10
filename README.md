@@ -2,7 +2,7 @@
 
 Water Cooler is a basic chat program loosely based off of Discord. It allows you to make different "Taps", which contain channels and users. Users are able to post messages to the channels, or make their own channels.
 
-You are also able to directly message other users.
+You can also directly message other users.
 
 ## Screenshots
 ![Home Screen](https://i.imgur.com/NXIQLHv.png)
