@@ -41,7 +41,7 @@
                             </div>
                         <% }) %>
                         <form action="/home/<%= selectedTap.id %>/channels/<%= selectedChannel.id %>" method="post" id="msgform">
-                            <input type="textarea" name="body" autofocus onfocus="this.select()">
+                            <input type="textarea" name="body" autocomplete="off" autofocus onfocus="this.select()">
                         </form>
                     <% } %>
                     </div>
@@ -50,7 +50,7 @@
             <div id="users" class="">
                 <ul id="userlist">
                     <% users ? users.forEach((user) => { %>
-                        <li class="user"><%= user.nname %></li>
+                        <a href="/users/<%= user.id %>"><li class="user"><%= user.nname %></li></a>
                     <% }) : '' %>
                 </ul>
             </div>

@@ -45,7 +45,7 @@
                             <% }) %>
                         <% } %>
                         <form action="/users/<%= selectedUser.id %>" method="post" id="msgform">
-                            <input type="textarea" name="body" autofocus onfocus="this.select()">
+                            <input type="textarea" name="body" autocomplete="off" autofocus onfocus="this.select()">
                         </form>
                     </div>
                 </div>
