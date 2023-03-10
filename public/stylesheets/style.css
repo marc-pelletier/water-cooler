@@ -31,6 +31,7 @@ main > div {
 
 #taps {
   width: 80px;
+  min-width: 80px;
 }
 
 #channels {
@@ -206,34 +207,37 @@ main > div {
 }
 
 #tapindex {
+  width: 100%;
   margin: 80px 10px 0 10px;
-  display: flex;
   overflow-y: scroll;
+  flex-wrap: wrap;
 }
 
 .tapcard {
   border: 2px solid rgb(25, 35, 35);
   height: 100px;
   width: 250px;
-  display: flex;
+  display: inline-flex;
   justify-content: space-around;
   align-items: center;
-  margin: 5px;
+  margin: 3px;
   border-radius: 5px;
   background-color: rgb(30, 40, 40);
 }
 
 #userindex {
+  width: 100%;
   margin: 80px 10px 0 10px;
-  display: flex;
   overflow-y: scroll;
+  flex-wrap: wrap;
 }
 
 #userindex a {
   border-radius: 5px;
   height: 100px;
   width: 250px;
-  margin: 5px;
+  margin: 3px;
+  display: inline-block;
 }
 
 .usercard {
