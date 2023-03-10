@@ -7,6 +7,12 @@ const messageSchema = new Schema({
     author: {type: ObjectId}
 }, {timestamps: true}) 
 
+const dmSchema = new Schema({
+    user: {type: ObjectId},
+    msgs: [messageSchema]
+}, {timestamps: true}) 
+
+
 var userSchema = new Schema({
     gname: String,
     nname: String,
@@ -16,7 +22,7 @@ var userSchema = new Schema({
     friends: {type: [ObjectId]},
     fInvitesIn: {type: [ObjectId]},
     fInvitesOut: {type: [ObjectId]},
-    dms: {type: [messageSchema]}
+    dms: {type: [dmSchema]}
 }, {
   timestamps: true
 });

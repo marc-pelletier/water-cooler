@@ -225,6 +225,13 @@ main > div {
   overflow-y: scroll;
 }
 
+#userindex a {
+  border-radius: 5px;
+  height: 100px;
+  width: 250px;
+  margin: 5px;
+}
+
 .usercard {
   border: 2px solid rgb(25, 35, 35);
   height: 100px;
