@@ -2,6 +2,8 @@
 
 Water Cooler is a basic chat program loosely based off of Discord. It allows you to make different "Taps", which contain channels and users. Users are able to post messages to the channels, or make their own channels.
 
+You are also able to directly message other users.
+
 ## Screenshots
 ![Home Screen](https://i.imgur.com/NXIQLHv.png)
 
@@ -32,13 +34,12 @@ Delete a message by hovering over it and selecting the red 'X' button.
 Change your nickname by clicking your current name in the lower left.
 
 ### Navigation
-Users - Display all users and invite them to taps.  
+Users - Display all users. Click invite to invite them to taps. Click their name to directly message them.  
 Taps - Display all taps and join them.  
 Invites - Display taps you've been invited to.  
 
 ## Next steps:
 - Add friend support
-- Add direct messaging functionality
 - Add image support
 - Add Tap administration/settings
 - Add live updates
