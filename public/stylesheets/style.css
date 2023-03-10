@@ -11,6 +11,10 @@ a {
   color: white !important;
 }
 
+.login a {
+  color: #00B7FF !important;
+}
+
 main {
   display: flex !important;
   justify-content: center;
